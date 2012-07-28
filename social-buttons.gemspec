@@ -23,7 +23,9 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "init.rb",
+    "lib/like-button.rb",
     "lib/tweet-button.rb",
+    "social-buttons.gemspec",
     "test/helper.rb",
     "test/test_tweet-button.rb"
   ]
