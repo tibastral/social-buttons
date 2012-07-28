@@ -4,12 +4,12 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "tweet-button"
-    gem.summary = %Q{Generate new Twitter 'Tweet buttons'}
-    gem.description = %Q{Generate Tweet buttons for your Rails apps}
-    gem.email = "jeremymcanally@gmail.com"
-    gem.homepage = "http://github.com/jm/tweet-button"
-    gem.authors = ["Jeremy McAnally"]
+    gem.name = "social-buttons"
+    gem.summary = %Q{Generate new Social Buttons}
+    gem.description = %Q{Generate Social Buttons for your Rails apps}
+    gem.email = "yuva@codemancers.com"
+    gem.homepage = "https://github.com/iffyuva/social-buttons"
+    gem.authors = ["Jeremy McAnally", "Yuva"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
@@ -41,7 +41,7 @@ task :test => :check_dependencies
 
 task :default => :test
 
-require 'rake/rdoctask'
+require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
