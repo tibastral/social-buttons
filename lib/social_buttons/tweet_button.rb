@@ -3,6 +3,7 @@ module TweetButton
 
   def tweet_button(options = {})
     params = tweet_options_to_data_params(default_tweet_button_options.merge(options))
+    params.merge!(class: "twitter-share-button")
 
     html = "".html_safe
     html << tweet_widgets_js_tag unless @tweet_widgetized
@@ -15,12 +16,12 @@ module TweetButton
 
   def default_tweet_button_options
     options = {
-      url: request.url,
-      via: "tweetbutton",
-      text: "",
-      related: "",
-      count: "vertical",
-      lang: "en"
+      url:    request.url,
+      via:    "tweetbutton",
+      text:   "",
+      count:  "vertical",
+      lang:   "en",
+      related: ""
     }
 
     options.merge(TweetButton.default_tweet_button_options || {})
@@ -29,14 +30,12 @@ module TweetButton
   def tweet_widgets_js_tag
     @tweet_widgetized = true
     twitter_wjs = "http://platform.twitter.com/widgets.js"
-    '<script src=#{twitter_wjs} type="text/javascript"></script>'.html_safe
+    "<script src=#{twitter_wjs} type='text/javascript'></script>".html_safe
   end
 
   def tweet_options_to_data_params(opts)
     params = {}
     opts.each {|k, v| params["data-#{k}"] = v}
-
-    params['class'] = 'twitter-share-button'
     params
   end
 end
