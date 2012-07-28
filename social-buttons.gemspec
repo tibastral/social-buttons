@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "init.rb",
     "lib/social_buttons.rb",
     "lib/social_buttons/like_button.rb",
+    "lib/social_buttons/pinit_button.rb",
     "lib/social_buttons/tweet_button.rb",
     "social-buttons.gemspec",
     "test/helper.rb",
