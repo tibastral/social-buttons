@@ -1,8 +1,5 @@
 # Social Buttons
 
-Yuva - Codemancers
-Jeremy McAnally - Intridea
-
 A gem/plugin to generate those new social buttons like *tweet*, *like*, *pinit*
 
 Currently this gem supports 3 social buttons:
@@ -115,4 +112,5 @@ Only the options you specify will be overridden; so if you only specify a new de
 # Copyright
 
 Copyright (c) 2012 Yuva Kumar. See LICENSE for details.
+
 Copyright (c) 2010 Jeremy McAnally. See LICENSE for details.
