@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'view_helper_config'
 
 describe SocialButtons::ViewHelper do
   include ControllerTestHelpers,
