@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
+    "Gemfile",
+    "Gemfile.lock",
     "LICENSE",
     "README.md",
     "Rakefile",
@@ -30,8 +32,12 @@ Gem::Specification.new do |s|
     "lib/social_buttons/view_helpers/pinit.rb",
     "lib/social_buttons/view_helpers/tweet.rb",
     "social-buttons.gemspec",
-    "test/helper.rb",
-    "test/test_tweet-button.rb"
+    "spec/social_buttons/config_spec.rb",
+    "spec/social_buttons/like_spec.rb",
+    "spec/social_buttons/pinit_spec.rb",
+    "spec/social_buttons/tweet_spec.rb",
+    "spec/spec_helper.rb",
+    "spec/view_helper_config.rb"
   ]
   s.homepage = "https://github.com/iffyuva/social-buttons"
   s.require_paths = ["lib"]
@@ -42,9 +48,27 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<rails>, [">= 3.0.0"])
+      s.add_development_dependency(%q<rspec>, [">= 2.8.0"])
+      s.add_development_dependency(%q<rdoc>, [">= 3.12"])
+      s.add_development_dependency(%q<bundler>, [">= 1.0.0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.8.4"])
+      s.add_development_dependency(%q<simplecov>, [">= 0.5"])
     else
+      s.add_dependency(%q<rails>, [">= 3.0.0"])
+      s.add_dependency(%q<rspec>, [">= 2.8.0"])
+      s.add_dependency(%q<rdoc>, [">= 3.12"])
+      s.add_dependency(%q<bundler>, [">= 1.0.0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
+      s.add_dependency(%q<simplecov>, [">= 0.5"])
     end
   else
+    s.add_dependency(%q<rails>, [">= 3.0.0"])
+    s.add_dependency(%q<rspec>, [">= 2.8.0"])
+    s.add_dependency(%q<rdoc>, [">= 3.12"])
+    s.add_dependency(%q<bundler>, [">= 1.0.0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.8.4"])
+    s.add_dependency(%q<simplecov>, [">= 0.5"])
   end
 end
 
