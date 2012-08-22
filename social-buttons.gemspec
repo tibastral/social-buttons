@@ -5,35 +5,37 @@
 
 Gem::Specification.new do |s|
   s.name = "social-buttons"
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jeremy McAnally", "Yuva"]
-  s.date = "2012-07-28"
+  s.date = "2012-08-22"
   s.description = "Generate Social Buttons for your Rails apps"
   s.email = "yuva@codemancers.com"
   s.extra_rdoc_files = [
     "LICENSE",
-    "README.rdoc"
+    "README.md"
   ]
   s.files = [
     ".document",
     "LICENSE",
-    "README.rdoc",
+    "README.md",
     "Rakefile",
     "VERSION",
     "init.rb",
     "lib/social_buttons.rb",
-    "lib/social_buttons/like_button.rb",
-    "lib/social_buttons/pinit_button.rb",
-    "lib/social_buttons/tweet_button.rb",
+    "lib/social_buttons/engine.rb",
+    "lib/social_buttons/view_helper.rb",
+    "lib/social_buttons/view_helpers/like.rb",
+    "lib/social_buttons/view_helpers/pinit.rb",
+    "lib/social_buttons/view_helpers/tweet.rb",
     "social-buttons.gemspec",
     "test/helper.rb",
     "test/test_tweet-button.rb"
   ]
   s.homepage = "https://github.com/iffyuva/social-buttons"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.24"
   s.summary = "Generate new Social Buttons"
 
   if s.respond_to? :specification_version then
