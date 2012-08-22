@@ -1,7 +1,7 @@
 module SocialButtons
   module Rails
     class Engine < ::Rails::Engine
-      intializer 'social buttons config' do 
+      initializer 'social buttons config' do 
         SocialButtons.buttons.each do |name|
           ActionView::Base.send :include, SocialButtons::ViewHelper
         end        

@@ -10,7 +10,7 @@ module SocialButtons
 
   # add class method for each social button registered
   names.each do |name|
-    (class << self; self; end).define_method name do |&block|      
+    (class << self; self; end).send :define_method, name do |&block|      
       clazz = "SocialButtons::#{name.to_s.camelize}".constantize
       block_given? ? clazz.instance_eval(&block) : clazz
     end
@@ -18,7 +18,7 @@ module SocialButtons
 end
 
 SocialButtons.names.each do |name|
-  require "social_buttons/view_helpers/#{name}_button"
+  require "social_buttons/view_helpers/#{name}"
 end
 
 require "social_buttons/view_helper"
