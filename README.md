@@ -1,14 +1,13 @@
 # Social Buttons
 
-A gem/plugin to generate those new social buttons like *tweet*, *like*, *pinit*
+This gem is a Rails 3+ engine (but can be used without the engine).
 
-Currently this gem supports 3 social buttons:
+Currently there is support for the following social buttons:
 
 * Twitter *tweet* button
 * Facebook *like* button
 * Pinterest *pinit* button
-
-The gem is a Rails 3+ engine!
+* Google+ *+1* button
 
 # Installation
 
@@ -155,16 +154,23 @@ end
 
 This little DSL makes the configuration more extensible for the future ;)
 
-
 Only the options you specify will be overridden; so if you only specify a new default `:via`, then the other defaults will stay intact.
+
+## Help
+
+We have started adding suport for help directly in the api:
+
+`puts SocialButtons.config(:google_plus).help`
+
+Should output some help info on how to use that particular method, options available etc. So far only works for Google+ button.
 
 # TODO
 
-* Add tests :P
-* Give more control to customize buttons
-* Add more social buttons like g+.
+* Improve specs
+* Add more options to customize buttons (fx localization on all if available)
+* Add even more social buttons...
 
-# Note on Patches/Pull Requests
+## Note on Patches/Pull Requests
 
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -174,8 +180,9 @@ Only the options you specify will be overridden; so if you only specify a new de
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-# Copyright
+## Copyright
 
-Copyright (c) 2012 Yuva Kumar. See LICENSE for details.
+Copyright (c) 2012 Kristian Mandrup & Yuva Kumar
+Copyright (c) 2010 Jeremy McAnally. 
 
-Copyright (c) 2010 Jeremy McAnally. See LICENSE for details.
+See LICENSE for details.
