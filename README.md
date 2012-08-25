@@ -14,7 +14,7 @@ Currently there is support for the following social buttons:
 Add the gem to your Gemfile and use Bundler to install the gem.
 
 ```ruby
-gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
+gem "social-buttons", '~> 0.3'
 ```
 
 # Usage
