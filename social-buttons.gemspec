@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
     "README.md",
     "Rakefile",
     "VERSION",
-    "init.rb",
+    "lib/social-buttons.rb",
     "lib/social_buttons.rb",
     "lib/social_buttons/engine.rb",
     "lib/social_buttons/view_helper.rb",
@@ -48,7 +48,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "https://github.com/iffyuva/social-buttons"
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.24"
+  s.rubygems_version = "1.8.10"
   s.summary = "Generate new Social Buttons"
 
   if s.respond_to? :specification_version then
