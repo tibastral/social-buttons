@@ -2,11 +2,9 @@ module SocialButtons
   module Assistant
     extend ActiveSupport::Concern
 
-    module ClassMethods
-      attr_reader :widgetized      
+    module ClassMethods      
       attr_writer :default_options
-      alias_method :widgetized?, :widgetized
-
+      
       def myname
         self.name.demodulize
       end
@@ -32,10 +30,6 @@ module SocialButtons
 
       def help_note
         "Note: SocialButons will ensure that the button script is only rendered once!"
-      end
-
-      def empty_content
-        "".html_safe
       end
     end
   end

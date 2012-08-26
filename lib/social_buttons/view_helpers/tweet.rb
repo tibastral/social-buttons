@@ -11,7 +11,7 @@ module SocialButtons
       params.merge!(class: CLASS)
 
       html = "".html_safe
-      html << clazz.script
+      html << clazz::Scripter.new(self).script
       html << link_to("Tweet", TWITTER_SHARE_URL, params)
       html
     end
@@ -27,10 +27,12 @@ module SocialButtons
           related: ""
         }
       end
+    end
 
+    class Scripter < SocialButtons::Scripter
       def script
-        return empty_content if widgetized?
-        @widgetized = true        
+        return empty_content if widgetized? :tweet
+        widgetized! :tweet
         
         "<script src=#{twitter_wjs} type='text/javascript'></script>".html_safe
       end

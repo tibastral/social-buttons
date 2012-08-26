@@ -11,7 +11,7 @@ module SocialButtons
 
       html = "".html_safe
       html << content_tag(:div, nil, id: "fb-root")
-      html << clazz.script(app_id)
+      html << clazz::Scripter.new(self).script(app_id)
       html << content_tag(:div, nil, params)
       html
     end
@@ -28,10 +28,12 @@ module SocialButtons
           colorscheme: "light"
         }.merge("show-faces" => "false")
       end
+    end
 
+    class Scripter < SocialButtons::Scripter
       def script(app_id)
-        return empty_content if widgetized?
-        @widgetized = true        
+        return empty_content if widgetized? :like
+        widgetized! :like        
         "<script src=#{js_sdk(app_id)} type='text/javascript'></script>".html_safe
       end
 

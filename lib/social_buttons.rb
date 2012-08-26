@@ -3,6 +3,14 @@ module SocialButtons
     %w{pinit tweet like google_plus}
   end
 
+  def self.helpers
+    %w{assistant scripter}
+  end
+
+  def self.all
+    names + helpers
+  end
+
   def self.config name = nil, &block 
     context = name ? "SocialButtons::#{name.to_s.camelize}".constantize : self
     block_given? ? yield(context) : context

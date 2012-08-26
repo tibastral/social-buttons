@@ -109,7 +109,7 @@ So, a simple pinit button can be added like this:
 * `:href` - The URL to share; the default is the current URL.
 * `:size` - Size of button: 'small', 'tall' or 'medium'
 * `:annotation` - The style of button: 'inline', 'bubble', 'none'
-* `:lang` - The locale, fx 'es' for Spanish
+* `:lang` - The locale, fx 'es' for Spanish (alias :locale)
 
 See [Google+ button](http://www.google.com/intl/en/webmasters/+1/button/index.html) for more info.
 

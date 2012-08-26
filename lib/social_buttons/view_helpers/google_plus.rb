@@ -10,23 +10,26 @@ module SocialButtons
 
     # Async script mode:
     #   To only output script
-    #   = google_button :script, lang: 'es'
+    #   = google_button :script, locale: 'es'
 
     #   To NOT output script
-    #   = google_button :lang => 'es', script: false
+    #   = google_button :locale => 'es', script: false
     def google_plus_button *args
       options = args.extract_options!
       clazz = SocialButtons::GooglePlus
       return clazz.script(options) if args.first == :script
 
+      use_script = options.delete :script
+      locale = options.delete(:locale) || options.delete(:lang)
+
       params = clazz.options_to_data_params(clazz.default_options.merge(options))
       params.merge!(class: CLASS)
 
-      script_context = options[:script] == :async ? clazz::Async : clazz
+      scripter_class = use_script == :async ? clazz::AsyncScripter : clazz::Scripter
 
       html = "".html_safe
-      html << content_tag(:div, params)
-      html << script_context.script(options[:lang]) if options[:script]
+      html << content_tag(:div, nil, params)
+      html << scripter_class.new(self).script(locale) if use_script
       html
     end
 
@@ -38,23 +41,12 @@ module SocialButtons
           annotations:    "inline"
         }
       end
+    end
 
-      module Async
-        # Place this tag in your head or just before your close body tag
-        def script lang = nil
-          %Q{<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-            #{language lang}
-          </script>}
-        end
-
-        def language lang = nil
-          "{lang: '#{lang}'}" if lang
-        end
-      end
-
+    class Scripter < SocialButtons::Scripter
       def script lang = nil
-        return empty_content if widgetized?
-        @widgetized = true
+        return empty_content if widgetized? :google_plus
+        widgetized! :google_plus
         %q{<script type="text/javascript">
           #{language lang}
     (function() {
@@ -68,6 +60,20 @@ module SocialButtons
       def language lang = nil
         "window.___gcfg = {lang: '#{lang}'};" if lang
       end     
+    end
+
+
+    class AsyncScripter < SocialButtons::Scripter
+      # Place this tag in your head or just before your close body tag
+      def script lang = nil
+        %Q{<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+          #{language lang}
+        </script>}
+      end
+
+      def language lang = nil
+        "{lang: '#{lang}'}" if lang
+      end
     end
   end
 end

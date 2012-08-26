@@ -15,6 +15,18 @@ describe SocialButtons::ViewHelper do
       it "should set description using option" do
         output = tweet_button(:text => 'hello')
         output.should match(/hello/)
+        output.should match(/<script/)
+
+        output = tweet_button(:text => 'hello')
+        output.should_not match(/<script/)
+      end
+    end
+
+    context 'with script - on next request' do
+      it "should render script again on next request!" do
+        output = tweet_button(:text => 'hello')
+        output.should match(/hello/)
+        output.should match(/<script/)
       end
     end
   end
