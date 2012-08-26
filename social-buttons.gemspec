@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "social-buttons"
-  s.version = "0.3.5"
+  s.version = "0.3.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jeremy McAnally", "Yuva"]
-  s.date = "2012-08-25"
+  s.date = "2012-08-26"
   s.description = "Generate Social Buttons for your Rails apps"
   s.email = "yuva@codemancers.com"
   s.extra_rdoc_files = [
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     ".rspec",
+    "CHANGELOG.md",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE",
@@ -34,6 +35,7 @@ Gem::Specification.new do |s|
     "lib/social_buttons/view_helpers/google_plus/help.rb",
     "lib/social_buttons/view_helpers/like.rb",
     "lib/social_buttons/view_helpers/pinit.rb",
+    "lib/social_buttons/view_helpers/scripter.rb",
     "lib/social_buttons/view_helpers/tweet.rb",
     "social-buttons.gemspec",
     "spec/social_buttons/config_spec.rb",
