@@ -7,9 +7,15 @@ module SocialButtons
 
     def tweet_button(options = {})
       clazz = SocialButtons::Tweet
+
+      # JUNK Code! Refactor!!!!
+      params = {}
+
       params.merge!(url: request.url)
-      params = clazz.options_to_data_params(clazz.default_options.merge(options))
-      params.merge!(class: CLASS)
+      opt_params = clazz.default_options.merge(options)
+
+      params = clazz.options_to_data_params(opt_params)
+      params.merge!(:class => CLASS)
 
       html = "".html_safe
       html << clazz::Scripter.new(self).script
