@@ -7,6 +7,7 @@ module SocialButtons
 
     def tweet_button(options = {})
       clazz = SocialButtons::Tweet
+      params.merge!(url: request.url)
       params = clazz.options_to_data_params(clazz.default_options.merge(options))
       params.merge!(class: CLASS)
 
@@ -19,7 +20,6 @@ module SocialButtons
     class << self
       def default_options
         @default_options ||= {
-          url:    request.url,
           via:    "tweetbutton",
           text:   "",
           count:  "vertical",
@@ -33,11 +33,10 @@ module SocialButtons
       def script
         return empty_content if widgetized? :tweet
         widgetized! :tweet
-        
         "<script src=#{twitter_wjs} type='text/javascript'></script>".html_safe
       end
 
-      def twitter_wjs 
+      def twitter_wjs
         "http://platform.twitter.com/widgets.js"
       end
     end # class
