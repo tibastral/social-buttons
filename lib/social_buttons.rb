@@ -26,4 +26,4 @@ module SocialButtons
 end
 
 require "social_buttons/view_helper"
-require "social_buttons/engine" if defined?(::Rails::Engine)
+require "social_buttons/railtie" if defined?(Rails)

@@ -33,12 +33,15 @@ module SocialButtons
     class Scripter < SocialButtons::Scripter
       def script(app_id)
         return empty_content if widgetized? :like
-        widgetized! :like        
-        "<script src=#{js_sdk(app_id)} type='text/javascript'></script>".html_safe
+        widgetized! :like
+        [
+          "<script src=#{js_sdk} type='text/javascript'></script>",
+          "<script>FB.init({ appId: '#{app_id}', status: true, cookie: true, xfbml: true });</script>",
+        ].join.html_safe
       end
 
-      def js_sdk app_id
-        "https://connect.facebook.net/en_US/all.js#xfbml=1&appId=#{app_id}"
+      def js_sdk
+        "https://connect.facebook.net/en_US/all.js"
       end
     end
   end
