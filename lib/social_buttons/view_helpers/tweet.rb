@@ -42,8 +42,8 @@ module SocialButtons
         "<script src=#{twitter_wjs} type='text/javascript'></script>".html_safe
       end
 
-      def twitter_wjs
-        "http://platform.twitter.com/widgets.js"
+      def twitter_wjs 
+        "https://platform.twitter.com/widgets.js"
       end
     end # class
   end
