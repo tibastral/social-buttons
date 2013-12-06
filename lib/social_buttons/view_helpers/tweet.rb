@@ -36,7 +36,7 @@ module SocialButtons
       end
 
       def twitter_wjs 
-        "http://platform.twitter.com/widgets.js"
+        "https://platform.twitter.com/widgets.js"
       end
     end # class
   end
