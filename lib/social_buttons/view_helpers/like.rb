@@ -31,17 +31,18 @@ module SocialButtons
     end
 
     class Scripter < SocialButtons::Scripter
-      def script(app_id)
+      def script(app_id, options = {})
         return empty_content if widgetized? :like
         widgetized! :like
         [
-          "<script src=#{js_sdk} type='text/javascript'></script>",
+          "<script src=#{js_sdk options} type='text/javascript'></script>",
           "<script>FB.init({ appId: '#{app_id}', status: true, cookie: true, xfbml: true });</script>",
         ].join.html_safe
       end
 
-      def js_sdk
-        "https://connect.facebook.net/en_US/all.js"
+      def js_sdk options = {}
+        loc = options[:locale] || 'en_US'
+        "https://connect.facebook.net/" + loc + "/all.js"
       end
     end
   end

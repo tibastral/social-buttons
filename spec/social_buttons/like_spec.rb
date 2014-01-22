@@ -26,6 +26,10 @@ describe SocialButtons::ViewHelper do
         output = like_button('128085897213395', :width => '400')
         output.should_not match(/<script/)
       end
+      it "should print locale" do
+        output = like_button('128085897213395', locale: :ru_RU)
+        output.should match(/ru_RU/)
+      end
     end
 
     context 'with script - on next request' do
