@@ -11,7 +11,7 @@ module SocialButtons
 
       html = "".html_safe
       html << content_tag(:div, nil, id: "fb-root")
-      html << clazz::Scripter.new(self).script(app_id)
+      html << clazz::Scripter.new(self).script(app_id, options)
       html << content_tag(:div, nil, params)
       html
     end

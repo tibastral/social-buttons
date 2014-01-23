@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
     "lib/social-buttons.rb",
     "lib/social_buttons.rb",
     "lib/social_buttons/engine.rb",
+    "lib/social_buttons/railtie.rb",
     "lib/social_buttons/view_helper.rb",
     "lib/social_buttons/view_helpers/assistant.rb",
     "lib/social_buttons/view_helpers/google_plus.rb",
@@ -46,7 +47,7 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb",
     "spec/view_helper_config.rb"
   ]
-  s.homepage = "https://github.com/iffyuva/social-buttons"
+  s.homepage = "https://github.com/artemasmith/social-buttons"
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.25"
   s.summary = "Generate new Social Buttons"
