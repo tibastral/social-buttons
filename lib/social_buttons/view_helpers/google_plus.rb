@@ -66,9 +66,9 @@ module SocialButtons
     class AsyncScripter < SocialButtons::Scripter
       # Place this tag in your head or just before your close body tag
       def script lang = nil
-        %Q{<script type="text/javascript" src="https://apis.google.com/js/plusone.js">
-          #{language lang}
-        </script>}
+        ['<script type="text/javascript" src="https://apis.google.com/js/plusone.js">',
+          "#{language lang}",
+        '</script>'].join.html_safe
       end
 
       def language lang = nil
