@@ -47,14 +47,14 @@ module SocialButtons
       def script lang = nil
         return empty_content if widgetized? :google_plus
         widgetized! :google_plus
-        %q{<script type="text/javascript">
-          #{language lang}
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-        </script>}.html_safe
+        ['<script type="text/javascript">',
+          " #{language lang} ",
+          '(function() {',
+          'var po = document.createElement(\'script\'); po.type = \'text/javascript\'; po.async = true;',
+          'po.src = \'https://apis.google.com/js/plusone.js\';',
+          'var s = document.getElementsByTagName(\'script\')[0]; s.parentNode.insertBefore(po, s);',
+          '})();',
+        '</script>'].join.html_safe
       end
 
       def language lang = nil
