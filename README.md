@@ -104,6 +104,19 @@ So, a simple pinit button can be added like this:
 <%= pinit_button(url: request.url, media: @picture.image.url, description: "Amazing Picture") %>
 ```
 
+### Vkontakte like button
+
+Before using you should include in the head:
+`<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>`
+
+* `:appId` - AppIp of your application or site
+* `:type` - full, button, mini, vertical, vertical by default
+* `:width` - only if full. Should be > 200
+* `:height` - only 18, 20, 22, 24
+* `:verb` - 0 or 1
+
+See [Vk like](http://vk.com/pages?oid=-1&p=%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F_%D0%BA_%D0%B2%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%83_%D0%9C%D0%BD%D0%B5_%D0%BD%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%81%D1%8F) for more info
+
 ### Google Plus Button
 
 * `:href` - The URL to share; the default is the current URL.

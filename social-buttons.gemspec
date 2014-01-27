@@ -5,10 +5,10 @@
 
 Gem::Specification.new do |s|
   s.name = "social-buttons"
-  s.version = "0.3.8"
+  s.version = "0.3.9"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Jeremy McAnally", "Yuva"]
+  s.authors = ["Jeremy McAnally", "Yuva", "Artem Kuznetsov"]
   s.date = "2013-02-12"
   s.description = "Generate Social Buttons for your Rails apps"
   s.email = "yuva@codemancers.com"
@@ -38,12 +38,14 @@ Gem::Specification.new do |s|
     "lib/social_buttons/view_helpers/pinit.rb",
     "lib/social_buttons/view_helpers/scripter.rb",
     "lib/social_buttons/view_helpers/tweet.rb",
+    "lib/social_buttons/view_helpers/vkontakte.rb",
     "social-buttons.gemspec",
     "spec/social_buttons/config_spec.rb",
     "spec/social_buttons/google_plus_spec.rb",
     "spec/social_buttons/like_spec.rb",
     "spec/social_buttons/pinit_spec.rb",
     "spec/social_buttons/tweet_spec.rb",
+    "spec/social_buttons/vkontakte_spec.rb",
     "spec/spec_helper.rb",
     "spec/view_helper_config.rb"
   ]
