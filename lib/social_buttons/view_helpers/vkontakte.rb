@@ -1,7 +1,6 @@
 module SocialButtons
   module Vkontakte
     include SocialButtons::Assistant
-    CLASS = "vk_like"
 
     def vkontakte_like appId, *args
       clazz = SocialButtons::Vkontakte
@@ -13,7 +12,6 @@ module SocialButtons
       html << clazz::Scripter.new(self).init_js(appId)
       html << content_tag(:div, nil, id: "vk_like")
       html << clazz::Scripter.new(self).script(options)
-      #html << content_tag(:div, nil, params)
       html
     end
 
