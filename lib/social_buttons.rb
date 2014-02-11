@@ -1,6 +1,14 @@
 module SocialButtons
   def self.names
-    %w{pinit tweet like google_plus}
+    %w{pinit tweet like google_plus vkontakte}
+  end
+
+  def self.helpers
+    %w{assistant scripter}
+  end
+
+  def self.all
+    names + helpers
   end
 
   def self.config name = nil, &block 
@@ -18,4 +26,4 @@ module SocialButtons
 end
 
 require "social_buttons/view_helper"
-require "social_buttons/engine" if defined?(::Rails::Engine)
+require "social_buttons/railtie" if defined?(Rails)

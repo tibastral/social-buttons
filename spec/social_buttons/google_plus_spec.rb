@@ -11,10 +11,23 @@ describe SocialButtons::ViewHelper do
       end
     end
 
-    context 'with options' do
+    context 'with script and options' do
       it "should set annotation using option" do
-        output = google_plus_button(:annotation => 'bubble')
+        output = google_plus_button(:annotation => 'bubble', script: true)
         output.should match(/bubble/)
+        output.should match(/<script/)
+
+        output = google_plus_button(:annotation => 'none', script: true)
+        output.should match(/none/)
+        output.should_not match(/<script/)
+      end
+    end
+
+    context 'with script - on next request' do
+      it "should render script again on next request!" do
+        output = google_plus_button(:annotation => 'bubble', script: true)
+        output.should match(/bubble/)
+        output.should match(/<script/)
       end
     end
   end

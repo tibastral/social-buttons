@@ -21,7 +21,7 @@ module SocialButtons
       html << link_to(pinit_link, option_params) do
         image_tag PINIT_BUTTON_IMAGE, border: ("0" || options[:border]), title: (TITLE || options[:title])
       end
-      html << clazz.script
+      html << clazz::Scripter.new(self).script
       html
     end
 
@@ -31,10 +31,12 @@ module SocialButtons
           description: "Pin Me!"
         }.merge("count-layout" => "none")
       end
+    end
 
+    class Scripter < SocialButtons::Scripter
       def script
-        return empty_content if widgetized?
-        @widgetized = true        
+        return empty_content if widgetized? :pinit
+        widgetized! :pinit        
         "<script src=#{pinit_js} type='text/javascript'></script>".html_safe
       end
 

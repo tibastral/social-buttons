@@ -1,21 +1,20 @@
 # Social Buttons
 
-A gem/plugin to generate those new social buttons like *tweet*, *like*, *pinit*
+This gem is a Rails 3+ engine (but can be used without the engine).
 
-Currently this gem supports 3 social buttons:
+Currently there is support for the following social buttons:
 
 * Twitter *tweet* button
 * Facebook *like* button
 * Pinterest *pinit* button
-
-The gem is a Rails 3+ engine!
+* Google+ *+1* button
 
 # Installation
 
 Add the gem to your Gemfile and use Bundler to install the gem.
 
 ```ruby
-gem "social-buttons", git: "git://github.com/kristianmandrup/social-buttons.git"
+gem "social-buttons", '~> 0.3'
 ```
 
 # Usage
@@ -105,12 +104,25 @@ So, a simple pinit button can be added like this:
 <%= pinit_button(url: request.url, media: @picture.image.url, description: "Amazing Picture") %>
 ```
 
+### Vkontakte like button
+
+Before using you should include in the head:
+`<script src="http://vkontakte.ru/js/api/openapi.js" type="text/javascript" charset="windows-1251"></script>`
+
+* `:appId` - AppIp of your application or site
+* `:type` - full, button, mini, vertical, vertical by default
+* `:width` - only if full. Should be > 200
+* `:height` - only 18, 20, 22, 24
+* `:verb` - 0 or 1
+
+See [Vk like](http://vk.com/pages?oid=-1&p=%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F_%D0%BA_%D0%B2%D0%B8%D0%B4%D0%B6%D0%B5%D1%82%D1%83_%D0%9C%D0%BD%D0%B5_%D0%BD%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D1%81%D1%8F) for more info
+
 ### Google Plus Button
 
 * `:href` - The URL to share; the default is the current URL.
 * `:size` - Size of button: 'small', 'tall' or 'medium'
 * `:annotation` - The style of button: 'inline', 'bubble', 'none'
-* `:lang` - The locale, fx 'es' for Spanish
+* `:lang` - The locale, fx 'es' for Spanish (alias :locale)
 
 See [Google+ button](http://www.google.com/intl/en/webmasters/+1/button/index.html) for more info.
 
@@ -155,16 +167,23 @@ end
 
 This little DSL makes the configuration more extensible for the future ;)
 
-
 Only the options you specify will be overridden; so if you only specify a new default `:via`, then the other defaults will stay intact.
+
+## Help
+
+We have started adding suport for help directly in the api:
+
+`puts SocialButtons.config(:google_plus).help`
+
+Should output some help info on how to use that particular method, options available etc. So far only works for Google+ button.
 
 # TODO
 
-* Add tests :P
-* Give more control to customize buttons
-* Add more social buttons like g+.
+* Improve specs
+* Add more options to customize buttons (fx localization on all if available)
+* Add even more social buttons...
 
-# Note on Patches/Pull Requests
+## Note on Patches/Pull Requests
 
 * Fork the project.
 * Make your feature addition or bug fix.
@@ -174,8 +193,9 @@ Only the options you specify will be overridden; so if you only specify a new de
   (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
 * Send me a pull request. Bonus points for topic branches.
 
-# Copyright
+## Copyright
 
-Copyright (c) 2012 Yuva Kumar. See LICENSE for details.
+Copyright (c) 2012 Kristian Mandrup & Yuva Kumar
+Copyright (c) 2010 Jeremy McAnally. 
 
-Copyright (c) 2010 Jeremy McAnally. See LICENSE for details.
+See LICENSE for details.
