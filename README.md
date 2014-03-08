@@ -65,7 +65,7 @@ More information can be found from [Twitter](https://twitter.com/about/resources
 So, if you wanted to tweet about Hacker News, attribute it to Peter Cooper, and add some custom text, all from a tweet button with a horizontal counter, you'd do this:
 
 ```erb
-<%= tweet_button(via: => "peterc", url: "http://news.ycombinator.com", :text => "AWESOME.") %>
+<%= tweet_button(via: "peterc", url: "http://news.ycombinator.com", text: "AWESOME.") %>
 ```
 
 ### Like Button
